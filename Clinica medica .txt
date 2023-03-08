@@ -63,6 +63,4 @@ Por fim, as classes Consulta e Agenda têm uma relação de muitos para 1 (N:1) 
 Esse diagrama permite uma visão mais detalhada das classes e suas relações, possibilitando uma melhor compreensão do sistema de gestão de clínica médica.
 
 
-Delete_me
-
 
