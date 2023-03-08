@@ -1,0 +1,68 @@
+            +-------------------+
+            |      Pessoa       |
+            +-------------------+
+            | id                |
+            | nome              |
+            | data_nascimento   |
+            | endereco         |
+            | telefone         |
+            | email             |
+            +-------------------+
+                   ^
+                   |
+        +----------+---------+
+        |                    |
++------------------+  +---------------+
+|   Profissional    |  |     Paciente   |
++------------------+  +---------------+
+| id               |  | id            |
+| especialidade    |  | historico     |
+| crm              |  | ultima_consulta|
+| horarios_atendimento|+---------------+
+| salario          |
+| cargo            |
++------------------+
+         ^
+         |
+         |
++------------------+
+|     Consulta     |
++------------------+
+| id               |
+| data_hora        |
+| tipo_consulta    |
+| descricao        |
+| prescricao       |
+| paciente_id      |
+| profissional_id  |
++------------------+
+         ^
+         |
+         |
++------------------+
+|      Agenda      |
++------------------+
+| id               |
+| data_inicio      |
+| data_fim         |
+| profissional_id  |
++------------------+
+
+
+
+Neste diagrama, a classe Pessoa é uma classe pai que tem duas sub-classes: Profissional e Paciente. A classe Pessoa contém atributos básicos de identificação e contato, enquanto as sub-classes Profissional e Paciente contêm atributos específicos de cada tipo de pessoa.
+
+A classe Profissional contém atributos como CRM, especialidade, horários de atendimento e salário, além de um atributo para cargo, que pode ser utilizado para distinguir entre médicos, enfermeiros e técnicos em enfermagem. A classe Paciente contém o histórico médico do paciente e informações sobre a última consulta realizada.
+
+A classe Consulta tem atributos relacionados à consulta em si, como data e hora, tipo, descrição do problema apresentado e prescrição médica. Essa classe tem uma relação de muitos para 1 (N:1) com as classes Paciente e Profissional, indicando que uma consulta é realizada por um profissional de saúde para um paciente específico.
+
+A classe Agenda tem atributos relacionados ao período de tempo em que o profissional de saúde está disponível para atender pacientes, como data de início e fim e horários disponíveis. Essa classe tem uma relação de muitos para 1 (N:1) com a classe Profissional, indicando que cada agenda é atribuída a um único profissional de saúde.
+
+Por fim, as classes Consulta e Agenda têm uma relação de muitos para 1 (N:1) com as classes Paciente e Profissional, respectivamente, indicando que várias consultas podem estar agendadas para um mesmo profissional de saúde em um mesmo dia, e que um paciente pode ter várias consultas registradas no sistema.
+
+Esse diagrama permite uma visão mais detalhada das classes e suas relações, possibilitando uma melhor compreensão do sistema de gestão de clínica médica.
+
+
+
+
+

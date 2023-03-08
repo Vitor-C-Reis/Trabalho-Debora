@@ -1,0 +1,71 @@
++------------------------------------------------------+
+|                    Controlador                        |
++------------------------------------------------------+
+| - boloes: List<Bolao>                                |
+| - participantes: List<Participante>                  |
++------------------------------------------------------+
+| + cadastrar_participante(participante: Participante) |
+| + criar_bolao(bolao: Bolao)                          |
+| + listar_participantes()                             |
+| + listar_boloes()                                    |
++------------------------------------------------------+
+
+                  |
+                  | 1     1..*
++-----------------+                             +-----------------+
+| Participante    |                             |      Bolao      |
++-----------------+                             +-----------------+
+| - nome: str     |                             | - id: int        |
+| - ramal: str    |                             | - valor_cota: float |
+| - email: str    |                             | - qtd_cotas: int |
+| - cotas: List<Cota> |-----------------------<| - cartoes: List<Cartao> |
++-----------------+                             | - tipo_jogo: TipoJogo |
+                                                 | - num_concurso: int |
+                                                 | - data_sorteio: Date |
+                                                 +-----------------+
+
+                  | 1
+                  |
++-----------------+
+|       Cota      |
++-----------------+
+| - num_cota: int |
+| - valor: float  |
+| - data_pagto: Date|
++-----------------+
+
+                  | 1..*
+                  |
++-----------------+
+|      Cartao     |
++-----------------+
+| - numeros: List<int> |
+| - qtd_aproveitamentos: int |
++-----------------+
+
++-----------------+
+|     TipoJogo    |
++-----------------+
+| MEGASENA        |
+| QUINA           |
+| LOTOFACIL       |
+| ...             |
++-----------------+
+
+
+
+Explicação das classes:
+
+Controlador: é a classe principal do sistema, que gerencia os participantes e bolões. Possui as operações para cadastrar um participante, criar um bolão, e listar participantes e bolões.
+Participante: representa um participante do bolão, com nome, ramal e e-mail. Cada participante possui uma lista de cotas que comprou.
+Bolao: representa um bolão, com valor da cota, número de cotas, cartões apostados, tipo de jogo, número do concurso e data que será realizado o sorteio. Cada bolão possui uma lista de participantes e cartões apostados.
+Cota: representa uma cota comprada por um participante. Possui número da cota, valor e data de pagamento.
+Cartao: representa um cartão com números apostados. Possui uma lista de números e a quantidade de vezes que o cartão foi aproveitado em outros bolões.
+TipoJogo: enumeração dos tipos de jogos, como MegaSena, Quina, etc.
+Os relacionamentos entre as classes são:
+
+Controlador tem uma lista de Participantes e Bolaos.
+Um Participante possui uma lista de Cotas.
+Um Bolao possui uma lista de Participantes e Cartaos.
+Um Cartao possui uma lista de números e um contador de aproveitamentos.
+Bolao e Cartao têm um relacionamento de 1 para muitos, indicando que um bolão pode ter vários cartões
